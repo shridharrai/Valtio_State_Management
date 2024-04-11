@@ -16,7 +16,7 @@ const Counter = () => {
     const unsub = watch((get) => {
       const counter = get(store).counter;
       const x = get(testStore).x;
-      console.log("Watcxhing counter ", counter, x);
+      // console.log("Watcxhing counter ", counter, x);
     });
 
     return () => {

@@ -4,6 +4,7 @@ import Counter from "./Counter";
 import Photos from "./Photos";
 import { devtools } from "valtio/utils";
 import store from "./store";
+import UndoRedo from "./UndoRedo";
 
 function App() {
   useEffect(() => {
@@ -18,6 +19,7 @@ function App() {
     <>
       <div className="card">
         <Counter />
+        <UndoRedo />
         <Suspense fallback={<>Loading...</>}>
           <Photos />
         </Suspense>

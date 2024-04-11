@@ -1,4 +1,5 @@
 import { proxy, snapshot } from "valtio";
+import { proxyWithHistory } from "valtio-history";
 import { derive } from "valtio/utils";
 
 const store = proxy({
@@ -26,10 +27,20 @@ export const testStore = proxy({
 // console.log("Store is ", store);
 // console.log("Snapshot is ", snapshot(store));
 
+export const undoRedoStore = proxyWithHistory({
+  counter: 10,
+});
+
 export const increaseCounter = () => (store.counter += 1);
 export const decreaseCounter = () => (store.counter -= 1);
 export const increaseBy = (by: number) => (store.counter += by);
 export const decreaseBy = (by: number) => (store.counter -= by);
 export const reset = () => (store.counter = 0);
+
+export const increaseUndoRedoCounter = () => {
+  undoRedoStore.value.counter += 1;
+  snapshot(undoRedoStore);
+};
+export const decreaseUndoRedoCounter = () => (undoRedoStore.value.counter -= 1);
 
 export default store;

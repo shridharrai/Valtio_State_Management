@@ -12,6 +12,7 @@
   "dependencies": {
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "short-unique-id": "^5.0.3",
     "valtio": "^1.13.2",
     "valtio-history": "^0.3.2"
   },
